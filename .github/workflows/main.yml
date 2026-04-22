@@ -30,6 +30,8 @@ jobs:
          run: ruff check .
        - name: Run Black
          run: black --check .
+       - name: Fix
+         run: black .
            
       
       
