@@ -41,6 +41,12 @@ jobs:
           registry: ghcr.io
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
+      - name: Docker build and Push
+        uses: docker/build-push-action@v5
+        with:
+          context:
+          push: true
+          tags: ghcr.io/${{ github.repository }}:latest
   
            
       
