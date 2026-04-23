@@ -20,11 +20,10 @@ jobs:
         registry: ghcr.io
         username: ${{ github.actor }}
         password: ${{ secrets.GITHUB_TOKEN }}
-    - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
-    - name: Upload a Build Artifact
-      uses: actions/upload-artifact@v7.0.1
+    - name: Build the Docker image and Push
+      uses: docker/build-push-action@v7.1.0
       with:
-        path: .
-        name: fastapi
+        run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
+        push: true
+   
         
