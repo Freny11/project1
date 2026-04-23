@@ -23,7 +23,8 @@ jobs:
     - name: Build the Docker image and Push
       uses: docker/build-push-action@v7.1.0
       with:
-        run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
+        context:
         push: true
+        tags: ghcr.io/freny11/project1:latest
    
         
